@@ -607,7 +607,7 @@ fn op_chmod(
 ) -> Box<Op> {
   assert_eq!(data.len(), 0);
   let inner = base.inner_as_chmod().unwrap();
-  let _mode = inner.mode();
+  let mode = inner.mode();
   let path = String::from(inner.path().unwrap());
 
   if let Err(e) = state.check_write(&path) {
